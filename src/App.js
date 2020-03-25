@@ -12,7 +12,11 @@ function redirect(urlParams, account, setState) {
     }
     console.log("paramRaw", paramRaw);
     const url = new URL(paramRaw);
+
+    // for Wyre
     url.searchParams.append("dest", "ethereum:" + account);
+    // for other things
+    url.searchParams.append("address", account);
 
     window.location.href = url.href;
     console.log("redirecting to", url);
